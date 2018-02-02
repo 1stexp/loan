@@ -27,11 +27,9 @@
       <tr>
         <td>상환방법</td>
         <td>
-          <select>
-            <option value="1">원리금균등상환</option>
-            <option value="2">원금균등상환</option>
-            <option value="3">원금만기일시상환</option>
-          </select>
+          <input type="radio" name="paymethod" value="pay1" checked>원리금균등상환</input>
+          <input type="radio" name="paymethod" value="pay2">원금균등상환</input>
+          <input type="radio" name="paymethod" value="pay3">원금만기일시상환</input>
         </td>
       </tr>
     </table>
@@ -39,12 +37,23 @@
     <input type="button" value="다시작성"></p>
 
     <script>
-      function calcLoan() {
-        document.write('calc!');
-      }
-
       function clearAll() {
         this.money.value = "";
+      }
+
+      function calcLoan() {
+        var payplan = '<table border="1">';
+        payplan += '<tr>';
+        payplan += '<th>No.</th>';
+        payplan += '<th>상환액</th>';
+        payplan += '<th>원금</th>';
+        payplan += '<th>이자</th>';
+        payplan += '<th>상환액누계</th>';
+        payplan += '<th>대출잔금누계</th>';
+        payplan += '</tr>';
+        payplan += '</table>';
+
+        document.write(payplan);
       }
     </script>
   </body>
